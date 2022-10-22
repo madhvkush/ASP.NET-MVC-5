@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "Best Contries";
+}
+
+<h2>Best Contries</h2>
+
+<ul>
+    @foreach (string contry in (List<string>)ViewData["Contries"])
+    {
+        <li>@contry</li>
+    }
+</ul>

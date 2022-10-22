@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<br />
+@using(Html.BeginForm("Posted","Home",FormMethod.Post))
+{
+    <button>POST</button>
+}
+
+<br />
+@if (ViewBag.AfterPosted != null)
+{
+    <label>@ViewBag.AfterPosted</label>
+    
+}
+<label>@ViewBag.Message</label>

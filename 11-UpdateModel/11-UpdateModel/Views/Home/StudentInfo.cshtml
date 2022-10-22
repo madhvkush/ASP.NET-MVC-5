@@ -1,0 +1,29 @@
+﻿@model _11_UpdateModel.Models.Student
+
+@{
+    ViewBag.Title = "StudentInfo";
+}
+
+<h2>StudentInfo</h2>
+
+<fieldset>
+    <legend>Student</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.mobile)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.mobile)
+    </div>
+</fieldset>
+<p>
+   
+    @Html.ActionLink("Back to Change", "Index")
+</p>

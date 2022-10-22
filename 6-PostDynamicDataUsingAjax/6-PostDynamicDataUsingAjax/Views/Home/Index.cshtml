@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<h2>Index</h2>
+<input class="btn-default" type="button" id="btnSave" value="Save" />  
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#btnSave").click(function () {
+
+            var model = {
+                
+                    FristKey: "Hello",
+                    SecondKey: 'Hello India'
+                
+            };
+
+            $.ajax(
+            {
+
+                url: 'Home/foo',
+                //OR
+                url: '@Url.Action("foo")',
+                
+                type: 'POST',
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify(model),
+                success: function (result) {
+                    // json object is returning from action method
+                    alert(result['SecondKey']); // here i am showing value of seconKey of json object
+                }
+            });
+        });
+    });
+</script>

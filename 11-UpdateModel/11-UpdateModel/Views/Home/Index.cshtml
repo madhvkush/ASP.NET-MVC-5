@@ -1,0 +1,42 @@
+﻿@model _11_UpdateModel.Models.Student
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm("Index", "Home"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Student</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.name)
+            @Html.ValidationMessageFor(model => model.name)
+        </div>
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.mobile)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.mobile)
+            @Html.ValidationMessageFor(model => model.mobile)
+        </div>
+
+        <p>
+            <input type="submit" value="set mobile only" />
+        </p>
+    </fieldset>
+}
+
+
+
+

@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div style="border:1px solid black;padding:5px;margin-top:10px">
+    <h1>Main View</h1>
+
+    <div style="border: 2px solid green">
+        <p style="color:blue">Using Html.Partial --> Return HTML-string</p>
+        @Html.Partial("_MyPartialView")
+    </div>
+
+    <br />
+    <div style="border: 2px solid red">
+        <p style="color:blue">Using Html.RenderPartial -->Void type</p>
+        @{
+            Html.RenderPartial("_MyPartialView");
+        }
+    </div>
+    <br />
+    <div style="border:2px solid blue">
+        <p style="color:blue">Using Html.Action -->Return HTML-string</p>
+        @Html.Action("ActionWithPartialView")
+    </div>
+    <br />
+    <div style="border:2px solid yellow">
+        <p style="color:blue">Using Html.RenderAction -->void type</p>
+        @{
+            Html.RenderAction("ActionWithPartialView");
+        }
+    </div>
+
+</div>
+<br />
+<b> Note:- Partial view may be in shared folder or in any view folder.</b>
+<br /><br />
+
+
+Ref:- <a target="_blank" href="http://www.tutorialsteacher.com/mvc/partial-view-in-asp.net-mvc">Link-1</a>
+<a target="_blank" href="https://www.aspsnippets.com/Articles/MVC-Partial-View-Controller-Example-Return-Partial-View-from-Controller-in-ASPNet-MVC.aspx">Link-2</a>
+<a target="_blank" href="https://www.c-sharpcorner.com/UploadFile/ff2f08/partial-view-in-mvc/">Link-3</a>

@@ -1,0 +1,14 @@
+﻿@model _5_DataEntryScreen.Models.Customer
+
+@{
+    ViewBag.Title = "Enter Data";
+}
+
+<h2>Enter Data</h2>
+@using (Html.BeginForm("DisplayCustomer", "Customer", FormMethod.Post))
+{
+   @Html.Label("Customer Name:-") @Html.TextBoxFor(m => m.Custname);<br />
+   @Html.Label("Customer Code:-") @Html.TextBoxFor(m => m.CustomerCode);<br />
+   @Html.Label("Customer Amount:-") @Html.TextBoxFor(m => m.Amount);<br />
+    <input type="submit" value="Submit Data" />
+}

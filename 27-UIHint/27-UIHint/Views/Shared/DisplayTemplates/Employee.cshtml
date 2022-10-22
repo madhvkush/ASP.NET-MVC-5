@@ -1,0 +1,25 @@
+﻿@model _27_UIHint.Models.Employee
+
+<table width="100%" border="1" style="border-color:red" cellpadding="10">
+    <tr>
+        <td>Employee ID :</td>
+        <td>@Model.EmployeeID   </td>
+    </tr>
+    <tr>
+        <td>Name :</td>
+        <td>@Model.Name </td>
+    </tr>
+    <tr>
+        <td>Mobile :</td>
+        <td>@Model.Mobile</td>
+    </tr>
+    <tr>
+        <td>Birth Date :</td>
+        <td>@Html.DisplayFor(m => m.BirthDate) &nbsp;&nbsp; using DisplayFor()  to map template DateTimeIndiaFormat.cshtml </td>
+    </tr>
+    <tr>
+        <td>Joining Date :</td>
+        <td>@Html.DisplayFor(m => m.JoiningDate) &nbsp;&nbsp; using DisplayFor() to map template DateTime.cshtml </td>
+    </tr>
+</table>
+

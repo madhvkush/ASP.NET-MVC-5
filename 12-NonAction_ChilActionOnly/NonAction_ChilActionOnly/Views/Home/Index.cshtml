@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h4>[NonAction] Cant be Invoked from client side or View</h4>
+@using (Html.BeginForm())
+{
+    <input name="a" type="text" placeholder="first number" />
+    <input name="b" type="text" placeholder="2nd number" />
+    <button>Add</button>
+
+    if (ViewBag.result != null)
+    {
+        <label>@ViewBag.result</label>
+    }
+}
+Call child action using <b>Action()</b> {It returns string}<br />
+@Html.Action("ChildAction");
+
+<br /><br />
+Call child action using <b>RenderAction()</b> {It return type void}<br />
+@{
+
+    Html.RenderAction("ChildAction");
+}
+
+<br /><br />
+<button onclick="ChildAction()">Call Child Action on Button click</button>
+<script>
+    function ChildAction() {
+        var data ='@Html.Action("ChildAction")';
+        alert(data);
+    }
+</script>
+
+
+<br /><br />
+<button onclick="GetPerson()">Get Person Info by child Action</button>
+<br />
+<div id="ShowInfo">
+    
+</div>
+<script>
+    function GetPerson() {
+       
+        var Person = @Html.Action("GetPerson");
+        document.getElementById("ShowInfo").innerHTML = "<p>" + Person.Name + "</p>" + "<p>" + Person.Mobile + "</p>";
+    }
+</script>
+<p style="color:red">Note:- Can't Pass javascript variables as Parameter-values in Html.Action because Razor-C# and javascript varibales are not alive at same time. </p>
+<p style="color:dodgerblue">Razor-C# Varibles can be covert to javascript varibales. but vice-versa is not possible</p>

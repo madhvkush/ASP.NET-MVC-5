@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Page Markup</h2>
+<br />
+
+
+@using(Html.BeginForm("Posted","Home"))
+{
+    <button>Post</button>
+}
+
+
+
+<br />
+
+@if(TempData["Message1"]!=null)
+{
+    <label>@TempData["Message1"].ToString()</label>
+}
+
+@if (TempData["Message2"] != null)
+{
+    <label>@TempData["Message2"].ToString() </label>
+    TempData.Keep("Message2");
+}
+
+@if (TempData["Message3"] != null)
+{
+    <label>@TempData.Peek("Message3").ToString()</label>
+}
+
+<br />
+@ViewBag.Message1 <br />
+@ViewBag.Message2 <br />
+@ViewBag.Message3 <br />

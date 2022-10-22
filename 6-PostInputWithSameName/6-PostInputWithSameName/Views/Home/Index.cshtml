@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@using (Html.BeginForm("PostData", "Home",FormMethod.Post))
+{
+    @Html.TextBox("InputwithSameName","",htmlAttributes:new {placeholder="1st Name"});<br />
+    @Html.TextBox("InputwithSameName", "", htmlAttributes: new { placeholder = "2nd Name" });<br />
+    @Html.TextBox("InputwithSameName", "", htmlAttributes: new { placeholder = "3rd Name" });<br />
+
+    <button type="submit">POST</button>
+}
+
+    <p> @ViewBag.Names</p>

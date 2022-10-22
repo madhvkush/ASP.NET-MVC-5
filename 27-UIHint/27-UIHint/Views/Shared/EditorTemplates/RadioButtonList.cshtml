@@ -1,0 +1,29 @@
+﻿@model int?
+
+@using System.Collections
+@using System.Web.Mvc;
+
+@{
+    var list = (List<SelectListItem>)ViewData["RoleList"];
+}
+
+<ul class="radio-list">
+    @foreach (var item in list)
+    {
+        <li>
+            @{
+                var radioId =
+                    ViewData.TemplateInfo.GetFullHtmlFieldId(item.Value);
+                var checkedClass = (item.Value == Model.ToString()
+                                    ? "checked"
+                                    : string.Empty);
+                <input type="radio"
+                       id="@radioId"
+                       name="@ViewData.TemplateInfo.HtmlFieldPrefix"
+                       value="@item.Value"
+                       checked="@checkedClass" />
+                <label for="@radioId">@item.Text</label>
+            }
+        </li>
+    }
+</ul>

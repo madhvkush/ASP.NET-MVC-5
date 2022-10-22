@@ -1,0 +1,55 @@
+﻿@model CustomHelpers.Models.UserInfo
+
+@{
+    ViewBag.Title = "StronglyTypedHelper";
+}
+
+@using MadhvHelpers;
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Custom Strongly-Typed HTML Helper</title>
+
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    
+    <link href="~/Scripts/ui.dropdownchecklist.css" rel="stylesheet" />
+</head>
+<body>
+    
+
+    @{
+        List<Options>optList=new List<Options>();
+        optList.Add(new Options(){IsChecked=true,Text="Madhv Eng",Value="Er.Madhv Singh"});
+         optList.Add(new Options(){IsChecked=false,Text="Er. Akhilesh",Value="Akhilesh Pandey"});
+    }
+    <div>
+    
+       
+            
+            @Html.MS_DropDownWithcheckBox(m => m.Email, "MyDdpChkBox", optList)
+        <br />
+        <input type="button" value="Add-Option" onclick="fnSetItemList('MyDdpChkBox', 'Over-Lrage', 'Extra-Large', true)" />
+        <input type="button" value="GetSelected" onclick="alert(fnGetSelectedValue('MyDdpChkBox'))" />
+        <input type="button" value="Clear-List" onclick="fnGetClearList('MyDdpChkBox')" />
+        <br />
+
+        @Html.MS_DropDownWithcheckBox("MadhvDP","ddChb",optList)
+        <br />
+        <input type="button" value="Add-Option" onclick="fnSetItemList('ddChb', 'Over-Lrage', 'Extra-Large', true)" />
+        <input type="button" value="GetSelected" onclick="alert(fnGetSelectedValue('ddChb'))" />
+        <input type="button" value="Clear-List" onclick="fnGetClearList('ddChb')" />
+
+          
+</div>
+   
+
+    <script src="~/Scripts/CustomDropDwonJSMadhv.js"></script>
+
+   
+
+</body>
+</html>  

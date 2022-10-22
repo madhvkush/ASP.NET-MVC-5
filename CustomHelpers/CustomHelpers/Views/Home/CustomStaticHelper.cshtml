@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "CustomStaticHelper";
+}
+
+<h2>CustomStaticHelper</h2>
+@using CustomHelpers.CustomHelpers
+@using MadhvHelpers
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Custom Static HTML Helper</title>
+</head>
+<body>
+    <div>
+        @CustomHelper.Image("/Images/UserPic.jpg", "UserPic", "100", "100","Email")
+        @MyHelpers.Image("Source.jpg","Madhv-Image-Control","100","150","Image")
+    </div>
+</body>
+</html>  

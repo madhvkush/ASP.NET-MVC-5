@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "InlineHTMLHelper";
+}
+
+<h2>InlineHTMLHelper</h2>
+
+@helper OrderedList(string[] words)
+{
+    <ol>
+        @foreach (string word in words)
+        {
+            <li>@word</li>
+        }
+    </ol>
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Inline HTML Helper</title>
+</head>
+<body>
+    <div>
+        @OrderedList(new string[] { "Delhi", "Punjab", "Assam", "Bihar" })
+
+    </div>
+</body>
+</html>  

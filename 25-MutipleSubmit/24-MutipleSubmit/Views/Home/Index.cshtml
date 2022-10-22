@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Multiple submit button</h2>
+<h3> Ref:-<a href="http://www.binaryintellect.net/articles/c69d78a3-21d7-416b-9d10-6b812a862778.aspx"> http://www.binaryintellect.net/articles/c69d78a3-21d7-416b-9d10-6b812a862778.aspx </a> </h3>
+
+@using (Html.BeginForm())
+{
+    <input type="submit" formaction="Home/SubmitOK" value="OK" formmethod="post" />
+    <input type="submit" formaction="Home/SubmitCancel" value="Cancel" formmethod="post" />
+}
+
+<br />
+@ViewBag.Messsage

@@ -1,0 +1,96 @@
+﻿@model _27_UIHint.Models.Employee
+
+@{
+    ViewBag.Title = "Index";
+}
+<h4>Note:- by default DisplayFor() --> maps to the template with name of it's property data-type</h4>
+<h4>UIHint attribute is used in the model on the property to define the template explicitly</h4>
+<h4>To maps to display-template, have to call DisplayFor() or DisplayForModel()</h4>
+<h4>To maps to editor-template, have to call EditorFor() or EditorForModel()</h4>
+<hr />
+
+
+<div>
+
+    <dl class="dl-horizontal" style="border:2px dashed green">
+
+        <dt>
+
+            @Html.DisplayNameFor(model => model.EmployeeID)
+        </dt>
+
+        <dd>
+            <span>using <b style="color:blue">@@Html.DisplayFor</b>(model => model.EmployeeID) --> will maps to template <b style="color:blue">Int32.cshtml </b></span>
+            @Html.DisplayFor(model => model.EmployeeID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+            <span>using <b style="color:blue">@@Html.DisplayFor</b>(model => model.Name) --> will maps to template <b style="color:blue">StrongString.cshtml </b></span>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mobile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mobile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BirthDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BirthDate)
+            <span>using <b style="color:blue">@@Html.DisplayFor</b>(model => model.BirthDate) --> will maps to template <b style="color:blue">DateTimeIndiaFormat.cshtml </b></span>
+
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JoiningDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JoiningDate)
+            <span>using <b style="color:blue">@@Html.DisplayFor</b>(model => model.JoiningDate) --> will maps to template <b style="color:blue">DateTime.cshtml </b></span>
+        </dd>
+
+    </dl>
+</div>
+
+<h5>Name:- @Model.Name  {it will not map to the template}</h5>
+<br />
+
+<span><b style="color:blue">@@Html.DisplayForModel()</b>--> map to Employee.cshtml template</span>
+<div style="border:2px solid green; padding:4px">
+
+    @Html.DisplayForModel()
+</div>
+<br />
+@{
+    // In a real system we would get this list from the database
+    List<SelectListItem> list = new List<SelectListItem>();
+    list.Add(new SelectListItem() { Text = "Admin", Value = "0" });
+    list.Add(new SelectListItem() { Text = "Project manager", Value = "1" });
+    list.Add(new SelectListItem() { Text = "User", Value = "2" });
+}
+
+<br />
+Editor Template Example
+
+<dl>
+    <dt>@Html.DisplayNameFor(e => e.Name)</dt>
+    <dd>@Html.EditorFor(e => e.Name)</dd>
+</dl>
+<dl>
+    <dt>@Html.DisplayNameFor(e => e.Role)</dt>
+    <dd>@Html.EditorFor(e => e.Role.EmpRole, new { RoleList = list })</dd>
+</dl>
+
+Ref:
+<a target="_blank" href="https://www.growingwiththeweb.com/2012/12/aspnet-mvc-display-and-editor-templates.html">Link-1</a>
+<a target="_blank" href="https://www.codeguru.com/csharp/.net/net_asp/mvc/using-display-templates-and-editor-templates-in-asp.net-mvc.htm">Link-2</a>

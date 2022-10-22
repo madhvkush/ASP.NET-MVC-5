@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Partial View Called by Ajax</h2>
+<br />
+
+<div style="color:blue;" id="divPartialContent">
+
+</div>
+
+<script>
+    $(function () {
+        $.ajax({
+            url: '@Url.Action("GetPartialResult","Home")',
+            data: '{ Parm1: " Delhi India" }',
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            success: function (PartialResponse) {
+                $("#divPartialContent").html(PartialResponse);
+            },
+            failure: function (response) {
+                alert("Fail:- "+ response.responseText);
+            },
+            error: function (response) {
+                alert("Error:- "+ response.responseText);
+            }
+
+        });
+    });
+</script>

@@ -1,0 +1,26 @@
+﻿@model  _7_PostTightcoupledView.Models.EmployeeInfo
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<body>
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+       
+        @Html.TextBoxFor(m => m.User.Name) <br />
+        @Html.TextBoxFor(m => m.Depart.DepartHead) <br />
+        @Html.TextBoxFor(m => m.Epmloyee)<br />
+        
+       
+
+        <input type="submit" value="Post-Page" />
+    }
+
+    @*@using(Html.BeginForm())
+    {
+        
+    }*@
+
+    </body>

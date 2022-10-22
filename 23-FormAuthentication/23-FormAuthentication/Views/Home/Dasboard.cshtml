@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "Dasboard";
+}
+
+<h2>Dasboard</h2>
+@HttpContext.Current.User.Identity.Name
+
+@using (Html.BeginForm("Logout", "Home", FormMethod.Post))
+{
+    <a href="javascript:;" onclick="document.forms[0].submit();">Logout</a>
+}

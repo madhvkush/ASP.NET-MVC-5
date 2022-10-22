@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "Indian Cities";
+}
+
+<h2>Indian Cities</h2>
+
+<ol type="1">
+    @foreach(string city in ViewBag.Cities)
+    {
+        <li>@city</li>
+    }
+</ol>

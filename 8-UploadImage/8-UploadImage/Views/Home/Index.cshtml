@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Upload Image</h2>
+
+@using (Html.BeginForm("UploadImage", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="MyImage" />
+    <input type="submit" value="Upload" />
+    
+    if(ViewBag.ImgName!=null)
+    {
+        @ViewBag.ImgName
+    <img src='~/Uploads/' + '@ViewBag.ImgName' />
+    }
+   
+}
